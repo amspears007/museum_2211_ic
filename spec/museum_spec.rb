@@ -4,9 +4,11 @@ require './lib/museum'
 
 RSpec.describe Museum do
 
-  it 'is a museum' do
+  it 'is a museum with a name' do
     dmns = Museum.new("Denver Museum of Nature and Science")
 
-    exhibit(dmns).to be_a(Museum)
+    expect(dmns).to be_a(Museum)
+    expect(dmns.name).to eq("Denver Museum of Nature and Science")
+   
   end
 end
