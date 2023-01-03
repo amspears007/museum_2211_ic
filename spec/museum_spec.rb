@@ -8,7 +8,12 @@ RSpec.describe Museum do
     dmns = Museum.new("Denver Museum of Nature and Science")
 
     expect(dmns).to be_a(Museum)
-    expect(dmns.name).to eq("Denver Museum of Nature and Science")
-   
+    expect(dmns.name).to eq("Denver Museum of Nature and Science") 
+  end
+
+  it 'starts with no exhibits' do
+    dmns = Museum.new("Denver Museum of Nature and Science")
+
+    expect(dmns.exhibits).to eq []
   end
 end
