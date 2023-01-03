@@ -28,6 +28,17 @@ RSpec.describe Museum do
     dmns.add_exhibit(imax)
 
     expect(dmns.exhibits).to eq([gems_and_minerals, dead_sea_scrolls, imax])
+  end
 
+  it 'recommend exhbits based on interest' do
+    dmns = Museum.new("Denver Museum of Nature and Science")
+    patron_1 = Patron.new("Bob", 20)
+    patron_1.add_interest("Dead Sea Scrolls")
+    patron_1.add_interest("Gems and Minerals")
+
+    patron_2 = Patron.new("Sally", 20)
+    patron_2.add_interest("IMAX")
+
+    expect(dmns.recommend_exhibits(patron_1)).to eq([dead_sea_scrolls,gems_and_minerals])
   end
 end
